@@ -7,7 +7,7 @@ const LuckyDraw = () => {
     const [text, setText] = useState("Name will come here...");
     const [loading, setLoading] = useState(false);
     const [winner, setWinner] = useState('')
-    const {nameArray,setNameArray, winners,winnerArray} = useNameContext()
+    const {nameArray,setNameArray, winners,addWinner} = useNameContext()
     const pRef = useRef()
 
     useEffect( () => {
@@ -24,9 +24,8 @@ const LuckyDraw = () => {
     const handleClick = () => {
         const winnerIndex = Math.floor(Math.random() * nameArray.length); // Get a random index
         const selectedWinner = nameArray[winnerIndex]; // Get the winner from the nameArray
-        console.log(winnerIndex);
-        console.log(selectedWinner);
-        winnerArray(selectedWinner)
+       
+        addWinner(selectedWinner)
     
         // Set the winner and loading state
         setWinner(selectedWinner);
@@ -50,9 +49,7 @@ const LuckyDraw = () => {
     
             // Remove the winner from the nameArray
             const updatedNameArray = nameArray.filter((_, i) => i !== winnerIndex);
-            console.log(updatedNameArray);
-            console.log(selectedWinner);
-            console.log(nameArray);
+          
     
             // Update nameArray without the winner
             setNameArray(updatedNameArray);
