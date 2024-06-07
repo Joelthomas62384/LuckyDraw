@@ -1,0 +1,67 @@
+.glassyEffect {
+    position: relative; /* Positioning relative to contain pseudo-elements */
+    padding: 20px; /* Padding for the container */
+    overflow: hidden; /* Ensures content doesn't overflow */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+  }
+  
+  .glassyEffect::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(125% 125% at 50% 10%, #15d9e7 40%, rgb(51, 225, 238) 100%);
+    opacity: 0.9;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); /* For Safari */
+    z-index: 0; /* Ensure the blur is behind the text */
+    border-radius: 10px;
+  }
+  
+  .glassyEffect > * {
+    position: relative; /* Ensure text and other elements are above the blur */
+    z-index: 1;
+    /* Additional styles to keep text clear and readable */
+  }
+  
+  .glassyEffect * {
+    z-index: 1; /* Ensure all child elements are above the blur */
+    position: relative; /* Position relative to be on top of the blur */
+  }
+  
+  /* Small devices (phones, less than 768px) */
+  @media (max-width: 767px) {
+    .glassyEffect::before {
+      backdrop-filter: blur(5px); /* Reduce blur */
+      -webkit-backdrop-filter: blur(5px); /* Reduce blur for Safari */
+      border-radius: 5px; /* Smaller border radius */
+    }
+    .glassyEffect {
+      padding: 10px; /* Adjust padding for mobile */
+    }
+  }
+  
+  /* Medium devices (tablets, 768px and up) */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .glassyEffect::before {
+      backdrop-filter: blur(8px); /* Moderate blur */
+      -webkit-backdrop-filter: blur(8px); /* Moderate blur for Safari */
+      border-radius: 8px; /* Medium border radius */
+    }
+    .glassyEffect {
+      padding: 15px; /* Adjust padding for tablets */
+    }
+  }
+  
+  /* Large devices (desktops, 1024px and up) */
+  @media (min-width: 1024px) {
+    .glassyEffect::before {
+      backdrop-filter: blur(10px); /* Original blur */
+      -webkit-backdrop-filter: blur(10px); /* Original blur for Safari */
+      border-radius: 10px; /* Original border radius */
+    }
+  }
+  

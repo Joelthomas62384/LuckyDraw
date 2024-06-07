@@ -1,0 +1,11 @@
+.glassyEffect {
+
+    opacity: 0.9;
+    background: linear-gradient(125% 125% at 50% 10%, #15d9e7 40%, rgb(51, 225, 238) 100%);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); /* For Safari */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+  }
+  
